@@ -1,0 +1,1815 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6B1D1D" />
+    <meta
+      name="description"
+      content="Al Yemen Kitchen — a fictional restaurant celebrating Yemeni and Arabic flavours. Explore a sample menu, daily opening hours, and takeaway options. A portfolio concept."
+    />
+    <title>Al Yemen Kitchen — A little Yemen. A lot of heart.</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%236B1D1D'/%3E%3Cpath d='M17 45V28L32 14l15 14v17M26 45V32h12v13' fill='none' stroke='%23C9A24B' stroke-width='3'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              maroon: '#6B1D1D',
+              gold: '#C9A24B',
+              cream: '#FAF5EA',
+              charcoal: '#2B2B2B',
+              muted: '#72665A',
+              sand: '#F0E8D9',
+              parchment: '#FFFCF6',
+            },
+            fontFamily: {
+              display: ['"Playfair Display"', 'Georgia', 'serif'],
+              body: ['"DM Sans"', 'Arial', 'sans-serif'],
+            },
+            boxShadow: { soft: '0 12px 40px -16px rgba(73, 37, 20, .18)' },
+          },
+        },
+      };
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+      body {
+        margin: 0;
+        background: #faf5ea;
+        color: #2b2b2b;
+        font-family: 'DM Sans', Arial, sans-serif;
+      }
+      ::selection {
+        background: #c9a24b;
+        color: #411010;
+      }
+      :focus-visible {
+        outline: 3px solid #9d741d;
+        outline-offset: 5px;
+      }
+      .skip-link {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        transform: translateY(calc(-100% - 2rem));
+      }
+      .skip-link:focus-visible {
+        transform: translateY(0);
+      }
+      .opening-hours {
+        width: 100%;
+        table-layout: fixed;
+      }
+      .opening-hours th {
+        width: 30%;
+        text-align: left;
+        color: #72665a;
+      }
+      .opening-hours td {
+        text-align: right;
+        white-space: nowrap;
+        color: #2b2b2b;
+      }
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+      button {
+        cursor: pointer;
+      }
+      [hidden] {
+        display: none !important;
+      }
+      .shell {
+        width: min(1200px, calc(100% - 48px));
+        margin-inline: auto;
+      }
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 48px;
+        padding: 14px 23px;
+        border-radius: 7px;
+        font-size: 13px;
+        font-weight: 600;
+        transition:
+          background 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: #6b1d1d;
+        color: #faf5ea;
+        box-shadow: 0 5px 16px #6b1d1d16;
+      }
+      .btn-primary:hover {
+        background: #511414;
+        box-shadow: 0 8px 22px #6b1d1d26;
+      }
+      .nav-link {
+        position: relative;
+        padding-block: 12px;
+        font-size: 13px;
+        color: #5d5149;
+        transition: color 0.2s;
+      }
+      .nav-link:hover {
+        color: #6b1d1d;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: #6b1d1d;
+        transition: width 0.2s;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .pattern {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 2 51 29 78 40 51 51 40 78 29 51 2 40 29 29Z M0 0 80 80 M80 0 0 80' fill='none' stroke='%23C9A24B' stroke-opacity='.17' stroke-width='.7'/%3E%3C/svg%3E");
+      }
+      .hero-art {
+        isolation: isolate;
+        position: relative;
+        background: #6b1d1d;
+        border-radius: 230px 230px 20px 20px;
+        aspect-ratio: 0.94;
+      }
+      .hero-art::before {
+        content: '';
+        position: absolute;
+        inset: 14px;
+        border: 1px solid #c9a24b50;
+        border-radius: inherit;
+        pointer-events: none;
+      }
+      .dish-art {
+        filter: drop-shadow(0 18px 18px #290d0870);
+        transform: rotate(-9deg);
+      }
+      .hero-note {
+        position: absolute;
+        background: #fffcf6;
+        border: 1px solid #e8dcca;
+        border-radius: 10px;
+        box-shadow: 0 10px 32px #35180f18;
+      }
+      .menu-tab {
+        min-height: 46px;
+        padding: 12px 20px;
+        border: 1px solid transparent;
+        border-radius: 6px;
+        white-space: nowrap;
+        font-size: 13px;
+        font-weight: 500;
+        color: #66594b;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .menu-tab:hover {
+        background: #e9dfcd;
+      }
+      .menu-tab[aria-selected='true'] {
+        background: #6b1d1d;
+        color: #faf5ea;
+        box-shadow: 0 3px 8px #6b1d1d18;
+      }
+      .menu-card {
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s,
+          border-color 0.25s;
+      }
+      .menu-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px #5629180c;
+        border-color: #c9a24b;
+      }
+      .gallery-tile {
+        position: relative;
+        overflow: hidden;
+        min-height: 230px;
+        border-radius: 12px;
+      }
+      .gallery-scene {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        transition: transform 0.55s;
+      }
+      .gallery-tile:hover .gallery-scene {
+        transform: scale(1.07);
+      }
+      .gallery-scene::before {
+        content: '';
+        position: absolute;
+        width: 155px;
+        height: 155px;
+        border-radius: 50%;
+        border: 10px solid #fff7e975;
+        background: #fff9eb55;
+        box-shadow:
+          0 16px 30px #351d2220,
+          inset 0 0 0 2px #ffffff50;
+      }
+      .gallery-illustration {
+        z-index: 1;
+        width: 90px;
+        height: 90px;
+        filter: drop-shadow(4px 10px 5px #3b22172b);
+        transform: rotate(-12deg);
+      }
+      .gallery-label {
+        position: absolute;
+        bottom: 16px;
+        left: 18px;
+        padding: 7px 11px;
+        background: #fffcf6ed;
+        border-radius: 5px;
+        font-size: 11px;
+        font-weight: 500;
+        color: #54221c;
+      }
+      .social-placeholder {
+        display: inline-flex;
+        width: 38px;
+        height: 38px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #faf5ea35;
+        border-radius: 50%;
+        color: #e5d3af;
+      }
+      .reveal {
+        opacity: 1;
+      }
+      .motion-ready .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition:
+          opacity 0.65s ease,
+          transform 0.65s ease;
+      }
+      .motion-ready .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+      @media (max-width: 639px) {
+        .shell {
+          width: calc(100% - 40px);
+        }
+        .hero-art {
+          max-width: 390px;
+          margin-inline: auto;
+          width: calc(100% - 16px);
+        }
+        .menu-tab {
+          padding-inline: 14px;
+          font-size: 12px;
+        }
+        .gallery-tile {
+          min-height: 180px;
+        }
+        .gallery-scene::before {
+          width: 112px;
+          height: 112px;
+          border-width: 7px;
+        }
+        .gallery-illustration {
+          width: 65px;
+          height: 65px;
+        }
+        .gallery-label {
+          bottom: 11px;
+          left: 10px;
+          font-size: 10px;
+          padding: 5px 8px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition: none !important;
+        }
+        .motion-ready .reveal {
+          opacity: 1;
+          transform: none;
+        }
+        .btn:hover,
+        .menu-card:hover,
+        .gallery-tile:hover .gallery-scene {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <a href="#main" class="skip-link z-[100] rounded-md bg-maroon px-5 py-3 text-cream"
+      >Skip to content</a
+    >
+    <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
+      <symbol id="food-wrap" viewBox="0 0 100 100">
+        <g stroke="#6B1D1D" stroke-width="2.2" stroke-linejoin="round">
+          <path d="M24 27c5-15 42-18 52 0L65 80c-2 10-27 10-30 0Z" fill="#FAF5EA" />
+          <ellipse cx="50" cy="28" rx="26" ry="13" fill="#C9A24B" />
+          <path d="m31 28 9-7 9 8 10-10 10 9-13 8-13-3Z" fill="#6B1D1D" />
+          <path
+            d="m33 28 10 4 8-8 13 6M38 20l4 5m16 5 7-7"
+            fill="none"
+            stroke="#FAF5EA"
+            stroke-linecap="round"
+          />
+          <path d="m27 42 43 25M31 56l35 21" fill="none" stroke="#C9A24B" />
+          <path d="m35 73 30 1-2 10c-5 6-21 6-26 0Z" fill="#C9A24B" />
+        </g>
+      </symbol>
+      <symbol id="food-pita" viewBox="0 0 100 100">
+        <g stroke="#6B1D1D" stroke-width="2.2" stroke-linejoin="round">
+          <path d="M15 44c0-19 16-29 35-29s35 10 35 29v13H15Z" fill="#FAF5EA" />
+          <path d="m19 42 10-12 10 9 12-12 11 11 13-7 7 13" fill="#C9A24B" />
+          <circle cx="31" cy="47" r="11" fill="#6B1D1D" />
+          <circle cx="52" cy="43" r="11" fill="#6B1D1D" />
+          <circle cx="72" cy="48" r="10" fill="#6B1D1D" />
+          <path d="m26 44 6 5m16-10 5 5m15 2 5 4" stroke="#C9A24B" stroke-linecap="round" />
+          <path d="M13 48c3 27 15 39 37 39s35-15 37-39c-22 11-48 12-74 0Z" fill="#FAF5EA" />
+          <path
+            d="m27 62 6 2m12 10 7 1m12-10 6-2m-32 17 5 1"
+            stroke="#C9A24B"
+            stroke-linecap="round"
+          />
+        </g>
+      </symbol>
+      <symbol id="food-bread" viewBox="0 0 100 100">
+        <ellipse
+          cx="50"
+          cy="54"
+          rx="39"
+          ry="28"
+          fill="#C9A24B"
+          stroke="#6B1D1D"
+          stroke-width="2.2"
+        />
+        <ellipse
+          cx="48"
+          cy="48"
+          rx="37"
+          ry="27"
+          fill="#FAF5EA"
+          stroke="#6B1D1D"
+          stroke-width="2.2"
+        />
+        <g fill="none" stroke="#C9A24B" stroke-width="4" stroke-linecap="round">
+          <path d="m25 51 16-16m-1 24 17-20m-1 24 16-18" />
+        </g>
+        <g fill="#6B1D1D">
+          <circle cx="28" cy="37" r="1.5" />
+          <circle cx="64" cy="31" r="1.5" />
+          <circle cx="30" cy="62" r="1.5" />
+          <circle cx="72" cy="57" r="1.5" />
+        </g>
+      </symbol>
+      <symbol id="food-rice" viewBox="0 0 100 100">
+        <g stroke="#6B1D1D" stroke-width="2.2" stroke-linejoin="round">
+          <path d="M17 49c3-19 18-28 33-28s30 9 33 28Z" fill="#C9A24B" />
+          <path d="M11 49h78c-4 24-18 35-39 35S16 73 11 49Z" fill="#FAF5EA" />
+          <path d="M20 65h60M37 84v4h26v-4" fill="none" />
+          <path
+            d="m29 41 5-4m8 6 4-5m7-7 5 4m4 8 5-5m-25-7 5-3m26 15 4 2"
+            fill="none"
+            stroke="#FAF5EA"
+            stroke-linecap="round"
+          />
+          <path d="m37 72 6 5 7-5 7 5 6-5" fill="none" stroke="#C9A24B" />
+        </g>
+      </symbol>
+      <symbol id="food-chicken" viewBox="0 0 100 100">
+        <use href="#food-rice" />
+        <path
+          d="m56 30 13-12c-2-5 1-9 5-8 3 0 4 3 4 5 5 0 7 6 3 8-2 2-5 1-6 0L63 36Z"
+          fill="#FAF5EA"
+          stroke="#6B1D1D"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+        <path d="M33 26c7-10 19-12 26-6s8 17-2 23c-9 6-25 7-28-2-2-5 0-10 4-15Z" fill="#6B1D1D" />
+        <path
+          d="M36 31c3-6 9-8 14-7m-12 14 13-6"
+          fill="none"
+          stroke="#C9A24B"
+          stroke-width="2.5"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="food-falafel" viewBox="0 0 100 100">
+        <ellipse
+          cx="50"
+          cy="66"
+          rx="39"
+          ry="21"
+          fill="#FAF5EA"
+          stroke="#6B1D1D"
+          stroke-width="2.2"
+        />
+        <ellipse cx="50" cy="64" rx="31" ry="14" fill="none" stroke="#C9A24B" stroke-width="2" />
+        <g fill="#C9A24B" stroke="#6B1D1D" stroke-width="2.2">
+          <circle cx="32" cy="54" r="16" />
+          <circle cx="66" cy="55" r="16" />
+          <circle cx="49" cy="34" r="16" />
+        </g>
+        <path
+          d="m25 51 4-3m4 10 4-3m21 0 4-4m6 7 4-3M43 30l4-3m5 13 4-4"
+          fill="none"
+          stroke="#6B1D1D"
+          stroke-width="2.5"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="food-dip" viewBox="0 0 100 100">
+        <path
+          d="M12 45c3 29 17 39 38 39s35-10 38-39"
+          fill="#C9A24B"
+          stroke="#6B1D1D"
+          stroke-width="2.2"
+        />
+        <ellipse
+          cx="50"
+          cy="43"
+          rx="39"
+          ry="25"
+          fill="#FAF5EA"
+          stroke="#6B1D1D"
+          stroke-width="2.2"
+        />
+        <path
+          d="M70 47c-9 14-40 10-43-2-4-13 24-19 35-11 13 10-10 19-19 11-4-4 4-8 9-4"
+          fill="none"
+          stroke="#C9A24B"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
+        <path
+          d="m55 24 5 6 7-3m-33 28-4 5m45-25 3 4"
+          fill="none"
+          stroke="#6B1D1D"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="food-salad" viewBox="0 0 100 100">
+        <g stroke="#6B1D1D" stroke-width="2.2" stroke-linejoin="round">
+          <path d="M21 48c-13-17 6-33 17-20 0-21 26-22 29-3 15-11 28 6 16 21" fill="#C9A24B" />
+          <path d="m27 35 9 13m16-26-2 25m23-11-10 12" fill="none" />
+          <circle cx="32" cy="44" r="10" fill="#6B1D1D" />
+          <circle cx="68" cy="42" r="10" fill="#FAF5EA" />
+          <path d="m64 38 8 8m-8 0 8-8" stroke="#C9A24B" />
+          <path d="m47 34 12 7-7 12-12-7Z" fill="#FAF5EA" />
+          <path d="M11 50h78c-4 24-18 34-39 34S16 74 11 50Z" fill="#FAF5EA" />
+          <path d="M20 65h60m-43 9h26" fill="none" stroke="#C9A24B" />
+        </g>
+      </symbol>
+      <symbol id="food-lemonade" viewBox="0 0 100 100">
+        <g stroke="#6B1D1D" stroke-width="2.2" stroke-linejoin="round">
+          <path d="M28 26h44l-6 61H34Z" fill="#FAF5EA" />
+          <path d="m32 44 4 39h28l4-39Z" fill="#C9A24B" stroke="none" />
+          <path d="m50 61 9-47 14-5" fill="none" stroke-linecap="round" />
+          <circle cx="30" cy="31" r="15" fill="#C9A24B" />
+          <circle cx="30" cy="31" r="11" fill="#FAF5EA" stroke="none" />
+          <path
+            d="M30 21v20M20 31h20m-17-7 14 14m-14 0 14-14"
+            stroke="#C9A24B"
+            stroke-width="1.5"
+          />
+          <path d="m40 55 9 3-3 10-9-3m17 3 8 2-2 9-8-2" fill="none" stroke="#FAF5EA" />
+        </g>
+      </symbol>
+      <symbol id="food-cup" viewBox="0 0 100 100">
+        <g stroke="#6B1D1D" stroke-width="2.2" stroke-linecap="round">
+          <ellipse cx="49" cy="79" rx="36" ry="8" fill="#C9A24B" />
+          <path d="M72 40h7c18 0 13 24-5 24h-6" fill="none" stroke-width="4" />
+          <path d="M23 37h51v21c0 16-10 23-25 23S23 71 23 58Z" fill="#FAF5EA" />
+          <ellipse cx="48.5" cy="37" rx="25.5" ry="7" fill="#6B1D1D" />
+          <path
+            d="M35 60h27M38 23c-6-8 7-9 1-17m16 17c-6-8 7-9 1-17"
+            fill="none"
+            stroke="#C9A24B"
+          />
+        </g>
+      </symbol>
+      <symbol id="food-lassi" viewBox="0 0 100 100">
+        <g stroke="#6B1D1D" stroke-width="2.2" stroke-linejoin="round">
+          <path d="M28 27h44l-7 60H35Z" fill="#FAF5EA" />
+          <path d="m31 38 6 46h26l6-46Z" fill="#C9A24B" stroke="none" />
+          <ellipse cx="50" cy="28" rx="22" ry="7" fill="#FAF5EA" />
+          <path d="m51 37 9-24 14-5" fill="none" stroke-linecap="round" />
+          <path d="M26 20c-3-13-17-13-18-4-1 9 9 14 18 4Z" fill="#C9A24B" />
+          <path d="m39 55 20 1m-17 7h14" stroke="#FAF5EA" stroke-linecap="round" />
+        </g>
+      </symbol>
+      <symbol id="food-teapot" viewBox="0 0 100 100">
+        <g stroke="#6B1D1D" stroke-width="2.2" stroke-linejoin="round">
+          <path d="M72 37c26-12 30 26 5 29" fill="none" stroke-width="5" />
+          <path d="M30 45 10 33l3 20 16 16" fill="#C9A24B" />
+          <path d="M30 37c-15 24-10 48 22 48s38-24 23-48Z" fill="#FAF5EA" />
+          <path d="M31 37c3-14 39-14 43 0Z" fill="#C9A24B" />
+          <circle cx="52" cy="22" r="5" fill="#6B1D1D" />
+          <path d="M29 68h47m-31-18 8-5 8 5-8 12Z" fill="none" stroke="#C9A24B" />
+        </g>
+      </symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24">
+        <path
+          d="M5 12h14m-5-5 5 5-5 5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </symbol>
+      <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+        <path
+          d="M20.5 11.8a8.5 8.5 0 0 1-12.6 7.5L3 20.7l1.4-4.8a8.5 8.5 0 1 1 16.1-4.1Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linejoin="round"
+        />
+        <path
+          d="m8.2 7.8 1.3-.3 1.1 2.3-.9 1.1a7 7 0 0 0 3.4 3.3l1.1-1 2.2 1.1-.2 1.4c-.2.8-1.2 1.1-2 1-3.7-.6-7.1-4-7.1-7 0-.8.5-1.6 1.1-1.9Z"
+          fill="currentColor"
+        />
+      </symbol>
+      <symbol id="icon-logo" viewBox="0 0 48 54">
+        <path
+          d="M5 47V25C5 16 16 12 24 3c8 9 19 13 19 22v22M13 47V29c0-7 7-10 11-15 4 5 11 8 11 15v18M2 47h44M18 40h12M24 25v15"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+        <path d="m24 30-5 4h10Z" fill="currentColor" />
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5" />
+        <path
+          d="M12 7v5l3 2"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </symbol>
+      <symbol id="icon-location" viewBox="0 0 24 24">
+        <path
+          d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        />
+        <circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+      </symbol>
+    </svg>
+
+    <header class="sticky top-0 z-50 border-b border-maroon/10 bg-cream/95 backdrop-blur-lg">
+      <nav
+        class="shell flex h-[86px] items-center justify-between gap-4"
+        aria-label="Main navigation"
+      >
+        <a
+          href="#home"
+          class="flex shrink-0 items-center gap-2.5 text-maroon"
+          aria-label="Al Yemen Kitchen home"
+        >
+          <svg class="h-11 w-10 text-maroon" aria-hidden="true"><use href="#icon-logo" /></svg>
+          <span
+            ><span class="block font-display text-[23px] font-semibold leading-none">Al Yemen</span
+            ><span class="mt-1.5 block text-[9px] font-semibold uppercase tracking-[.37em]"
+              >Kitchen</span
+            ></span
+          >
+        </a>
+        <div class="hidden items-center gap-8 lg:flex">
+          <a class="nav-link" href="#home">Home</a><a class="nav-link" href="#menu">Menu</a
+          ><a class="nav-link" href="#about">About</a><a class="nav-link" href="#gallery">Gallery</a
+          ><a class="nav-link" href="#visit">Visit</a>
+        </div>
+        <a
+          class="btn btn-primary hidden sm:inline-flex"
+          href="https://wa.me/910000000000"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><svg class="h-[18px] w-[18px]" aria-hidden="true"><use href="#icon-whatsapp" /></svg
+          >Order on WhatsApp<span class="sr-only"> (sample number, opens in a new tab)</span></a
+        >
+        <button
+          id="mobile-toggle"
+          class="flex h-11 w-11 items-center justify-center rounded-md border border-maroon/20 text-maroon lg:hidden"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg
+            width="23"
+            height="23"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            aria-hidden="true"
+          >
+            <path id="menu-icon" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="shell border-t border-maroon/10 pb-5 pt-3 lg:hidden" hidden>
+        <nav class="flex flex-col" aria-label="Mobile navigation">
+          <a href="#home" class="nav-link">Home</a><a href="#menu" class="nav-link">Menu</a
+          ><a href="#about" class="nav-link">About</a><a href="#gallery" class="nav-link">Gallery</a
+          ><a href="#visit" class="nav-link">Visit</a
+          ><a
+            href="https://wa.me/910000000000"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary mt-3 sm:hidden"
+            >Order on WhatsApp<span class="sr-only"> (sample number, opens in a new tab)</span></a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="home" class="relative overflow-hidden" aria-labelledby="hero-title">
+        <div
+          class="pointer-events-none absolute -left-32 top-24 h-80 w-64 rounded-full pattern opacity-40"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="shell relative grid items-center gap-12 pb-16 pt-12 sm:pb-20 sm:pt-16 lg:grid-cols-[1.05fr_1fr] lg:gap-20 lg:pb-20 lg:pt-14"
+        >
+          <div class="max-w-xl">
+            <div class="mb-7 flex items-center gap-3 text-maroon">
+              <span class="h-px w-8 bg-gold"></span>
+              <p class="eyebrow">From Yemen, with love</p>
+            </div>
+            <h1
+              id="hero-title"
+              class="font-display text-[48px] font-medium leading-[1.12] tracking-[-.045em] text-maroon sm:text-[66px] xl:text-[76px]"
+            >
+              A little Yemen.<br />A lot of
+              <span class="relative italic"
+                >heart.<svg
+                  class="absolute -bottom-3 left-0 w-full text-gold"
+                  height="13"
+                  viewBox="0 0 200 13"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M2 9Q90-2 197 5M20 12Q105 5 170 9"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  /></svg
+              ></span>
+            </h1>
+            <p class="mt-8 max-w-[390px] text-[15px] leading-7 text-muted">
+              Slow-cooked traditions. Generously shared.<br />Discover authentic Yemeni and Arabic
+              flavours that make every meal feel like coming home.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#menu" class="btn btn-primary"
+                >View Menu<svg class="h-4 w-4" aria-hidden="true">
+                  <use href="#icon-arrow" /></svg></a
+              ><a
+                href="https://wa.me/910000000000"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn border border-maroon/25 text-maroon hover:bg-sand"
+                >Order Takeaway<span class="sr-only">
+                  (sample WhatsApp number, opens in a new tab)</span
+                ></a
+              >
+            </div>
+            <div
+              class="mt-9 inline-flex items-center gap-2.5 rounded-full border border-maroon/10 bg-parchment px-4 py-2.5 text-[11px] font-medium text-muted"
+            >
+              <span class="h-1.5 w-1.5 rounded-full bg-maroon" aria-hidden="true"></span>Open daily
+              1:00 PM – 11:45 PM
+            </div>
+          </div>
+          <div class="relative mx-auto w-full max-w-[500px] px-2 pb-5 lg:px-0">
+            <div class="hero-art pattern flex flex-col items-center justify-center">
+              <p lang="ar" dir="rtl" class="absolute top-10 text-[27px] text-[#E1C584] sm:top-11">
+                مطبخ اليمن
+              </p>
+              <span class="absolute left-8 top-[30%] text-2xl text-gold/70" aria-hidden="true"
+                >✧</span
+              ><span class="absolute bottom-[20%] right-9 text-3xl text-gold/70" aria-hidden="true"
+                >✧</span
+              >
+              <svg
+                class="dish-art mt-10 w-[91%]"
+                viewBox="0 0 520 460"
+                role="img"
+                aria-labelledby="platter-title platter-desc"
+              >
+                <title id="platter-title">An illustrated Yemeni mandi platter</title>
+                <desc id="platter-desc">
+                  Golden spiced rice and roasted chicken, garnished with herbs, lemon and tomatoes,
+                  on a traditional ceramic plate.
+                </desc>
+                <defs>
+                  <radialGradient id="plate">
+                    <stop offset="0" stop-color="#FAF5DF" />
+                    <stop offset=".82" stop-color="#EAE2C9" />
+                    <stop offset=".9" stop-color="#FFF9E9" />
+                    <stop offset="1" stop-color="#D3B981" />
+                  </radialGradient>
+                  <radialGradient id="rice-base">
+                    <stop stop-color="#EFC565" />
+                    <stop offset="1" stop-color="#C88C39" />
+                  </radialGradient>
+                  <linearGradient id="chicken" x1="0" y1="0" x2="1" y2="1">
+                    <stop stop-color="#ECB357" />
+                    <stop offset=".42" stop-color="#C47029" />
+                    <stop offset=".75" stop-color="#8F3A1C" />
+                    <stop offset="1" stop-color="#632317" />
+                  </linearGradient>
+                  <pattern
+                    id="rice"
+                    x="0"
+                    y="0"
+                    width="32"
+                    height="29"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <path
+                      d="m3 4 7 4m9-6-2 8m7 5 5 3M5 21l7-3m3 8 7-3"
+                      stroke="#FBE4A0"
+                      stroke-width="3.5"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="m11 11 6 4M1 14l3 3m22-11 4-3"
+                      stroke="#FFF0C3"
+                      stroke-width="2.4"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="m22 21 2 6M6 27l3 1"
+                      stroke="#DC9C43"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </pattern>
+                  <pattern id="plate-decor" width="30" height="30" patternUnits="userSpaceOnUse">
+                    <path
+                      d="m15 3 4 8 8 4-8 4-4 8-4-8-8-4 8-4Z"
+                      fill="none"
+                      stroke="#6B1D1D"
+                      stroke-width="1.4"
+                      opacity=".8"
+                    />
+                  </pattern>
+                  <filter id="food-shadow">
+                    <feDropShadow
+                      dx="3"
+                      dy="7"
+                      stdDeviation="5"
+                      flood-color="#4D2614"
+                      flood-opacity=".35"
+                    />
+                  </filter>
+                  <g id="herb">
+                    <path d="M0 20V-9M0 9l-9-7M0 1l9-6" stroke="#40653B" stroke-width="2" />
+                    <ellipse
+                      cx="-7"
+                      cy="0"
+                      rx="5"
+                      ry="9"
+                      fill="#577943"
+                      transform="rotate(-45 -7 0)"
+                    />
+                    <ellipse
+                      cx="7"
+                      cy="-6"
+                      rx="5"
+                      ry="9"
+                      fill="#729250"
+                      transform="rotate(45 7 -6)"
+                    />
+                    <ellipse cy="-12" rx="5" ry="9" fill="#648543" />
+                  </g>
+                  <g id="lemon">
+                    <circle r="31" fill="#DFAF3C" />
+                    <circle r="27" fill="#FBEBA2" />
+                    <circle r="23" fill="#EEC95D" />
+                    <path
+                      d="M0 0V-24M0 0l21-12M0 0l21 12M0 0v24M0 0l-21 12M0 0l-21-12"
+                      stroke="#FFF1BC"
+                      stroke-width="3"
+                    />
+                    <circle r="3" fill="#FFF5CA" />
+                  </g>
+                </defs>
+                <ellipse cx="260" cy="242" rx="220" ry="201" fill="#32130E" opacity=".17" />
+                <circle cx="260" cy="225" r="211" fill="url(#plate)" />
+                <circle cx="260" cy="225" r="195" fill="none" stroke="#BDA66F" stroke-width="2" />
+                <circle
+                  cx="260"
+                  cy="225"
+                  r="180"
+                  fill="none"
+                  stroke="url(#plate-decor)"
+                  stroke-width="21"
+                />
+                <circle cx="260" cy="225" r="164" fill="url(#rice-base)" />
+                <path
+                  d="M104 209c-4-76 75-143 155-138s146 60 157 127c17 72-42 165-144 180-100 8-181-69-168-169Z"
+                  fill="url(#rice)"
+                />
+                <g fill="#663E25">
+                  <ellipse cx="160" cy="198" rx="3" ry="7" transform="rotate(28 160 198)" />
+                  <ellipse cx="306" cy="321" rx="3" ry="7" transform="rotate(-30 306 321)" />
+                  <ellipse cx="350" cy="181" rx="3" ry="7" />
+                  <ellipse cx="213" cy="119" rx="3" ry="7" transform="rotate(60 213 119)" />
+                  <ellipse cx="186" cy="305" rx="3" ry="7" />
+                </g>
+                <g filter="url(#food-shadow)">
+                  <path
+                    d="M177 175c5-27 31-55 63-59 31-3 65 16 84 46 21 34 18 73-11 89-29 18-65 13-91-9-26-22-52-33-45-67Z"
+                    fill="url(#chicken)"
+                  />
+                  <path
+                    d="M216 232c21-23 52-22 75-1 21 20 12 45-9 60l-48 34-28 9-15-21 32-40c-14-14-17-26-7-41Z"
+                    fill="url(#chicken)"
+                  />
+                  <path
+                    d="m201 312-22 20c-8-3-15-1-17 6-3 8 3 13 9 12 0 7 8 10 14 6 5-3 7-9 4-14l24-17Z"
+                    fill="#E8D2A0"
+                  />
+                  <path
+                    d="M198 165c22-24 48-30 72-18M196 181c23-21 53-21 76-11M211 203c23-16 47-12 62-5"
+                    fill="none"
+                    stroke="#6F331D"
+                    stroke-width="5"
+                    stroke-linecap="round"
+                    opacity=".65"
+                  />
+                  <path
+                    d="M205 153c16-17 35-22 49-21M236 245c9-8 21-5 28 0"
+                    fill="none"
+                    stroke="#F6C76D"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                    opacity=".75"
+                  />
+                  <use href="#lemon" x="137" y="248" transform="rotate(-15 137 248)" />
+                  <use href="#lemon" x="344" y="298" transform="scale(.83) translate(68 57)" />
+                  <g>
+                    <circle cx="348" cy="135" r="22" fill="#A43824" />
+                    <circle cx="344" cy="130" r="17" fill="#CD5031" />
+                    <path d="m345 115 3 10 10-4-7 8 7 6-12-2-6 8 1-12-8-4 10-1Z" fill="#50643B" />
+                  </g>
+                </g>
+                <use href="#herb" x="314" y="113" transform="rotate(34 314 113)" />
+                <use href="#herb" x="371" y="249" transform="rotate(65 371 249)" />
+                <use href="#herb" x="248" y="340" transform="rotate(-49 248 340)" />
+                <use href="#herb" x="141" y="164" transform="rotate(-40 141 164)" />
+                <g fill="#557442">
+                  <ellipse cx="283" cy="160" rx="3" ry="5" transform="rotate(35 283 160)" />
+                  <ellipse cx="241" cy="202" rx="3" ry="5" />
+                  <ellipse cx="291" cy="218" rx="5" ry="2" />
+                  <ellipse cx="247" cy="278" rx="3" ry="5" />
+                  <ellipse cx="194" cy="259" rx="5" ry="2" />
+                </g>
+              </svg>
+              <p
+                class="absolute bottom-7 text-[9px] font-medium uppercase tracking-[.3em] text-[#E1C584] sm:bottom-9"
+              >
+                A tradition worth sharing
+              </p>
+            </div>
+            <div
+              class="hero-note -left-1 bottom-12 flex items-center gap-3 px-4 py-3 sm:-left-5 sm:bottom-14 sm:px-5"
+            >
+              <span
+                class="flex h-10 w-10 items-center justify-center rounded-full bg-sand text-xl"
+                aria-hidden="true"
+                >🌿</span
+              ><span
+                ><span class="block font-display text-base text-maroon">Rooted in tradition</span
+                ><span class="mt-0.5 block text-[10px] text-muted"
+                  >Made with care. Served with warmth.</span
+                ></span
+              >
+            </div>
+            <div
+              class="absolute -right-1 top-20 flex h-[78px] w-[78px] rotate-12 flex-col items-center justify-center rounded-full border-[5px] border-cream bg-gold text-center text-maroon sm:-right-5 sm:h-[90px] sm:w-[90px]"
+            >
+              <span class="text-[8px] uppercase tracking-[.15em]">Always</span
+              ><span class="font-display text-lg italic">authentic</span
+              ><span class="mt-1 text-[9px]" aria-hidden="true">✦</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-y border-maroon/10 bg-sand/60" aria-label="The Al Yemen promise">
+        <div class="shell grid grid-cols-2 gap-x-4 gap-y-8 py-8 md:grid-cols-4 md:gap-0">
+          <div class="flex items-center justify-center gap-3 md:border-r md:border-maroon/15">
+            <svg
+              class="h-8 w-8 shrink-0 text-maroon"
+              viewBox="0 0 32 32"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.25"
+              aria-hidden="true"
+            >
+              <path
+                d="M8 22h16M5 25h22M7 22a9 9 0 0 1 18 0M16 11V8M12 5c-2 2 2 3 0 5m8-5c-2 2 2 3 0 5"
+                stroke-linecap="round"
+              />
+            </svg>
+            <div>
+              <h2 class="text-xs font-semibold sm:text-sm">Fresh Daily</h2>
+              <p class="mt-1 text-[10px] text-muted sm:text-xs">Good food, made with care</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-center gap-3 md:border-r md:border-maroon/15">
+            <svg
+              class="h-8 w-8 shrink-0 text-maroon"
+              viewBox="0 0 32 32"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.25"
+              aria-hidden="true"
+            >
+              <path
+                d="M8 11h16l2 16H6l2-16ZM12 12V8a4 4 0 0 1 8 0v4M12 18c2 3 6 3 8 0"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <div>
+              <h2 class="text-xs font-semibold sm:text-sm">Takeaway Available</h2>
+              <p class="mt-1 text-[10px] text-muted sm:text-xs">Your favourites, to go</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-center gap-3 md:border-r md:border-maroon/15">
+            <svg
+              class="h-8 w-8 shrink-0 text-maroon"
+              viewBox="0 0 32 32"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.25"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="10" r="4" />
+              <circle cx="23" cy="12" r="3" />
+              <path d="M3 26v-3a8 8 0 0 1 16 0v3m2-9a6 6 0 0 1 8 6v3" stroke-linecap="round" />
+            </svg>
+            <div>
+              <h2 class="text-xs font-semibold sm:text-sm">Family Friendly</h2>
+              <p class="mt-1 text-[10px] text-muted sm:text-xs">A place for everyone</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-center gap-3">
+            <svg
+              class="h-8 w-8 shrink-0 text-maroon"
+              viewBox="0 0 32 32"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.25"
+              aria-hidden="true"
+            >
+              <path
+                d="m16 3 4 4 6 1 1 6 3 4-5 4-2 6-7-1-6 1-2-6-5-4 3-4 1-6 6-1 3-4Z"
+                stroke-linejoin="round"
+              />
+              <path d="m11 16 3 3 7-7" stroke-linecap="round" />
+            </svg>
+            <div>
+              <h2 class="text-xs font-semibold sm:text-sm">Authentic Recipes</h2>
+              <p class="mt-1 text-[10px] text-muted sm:text-xs">Tradition in every bite</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu" class="shell py-20 sm:py-24" aria-labelledby="menu-title">
+        <div class="reveal mb-9 text-center">
+          <p class="eyebrow text-maroon">Made to bring you together</p>
+          <h2
+            id="menu-title"
+            class="mt-3 font-display text-4xl tracking-tight text-maroon sm:text-[46px]"
+          >
+            Find your new favourite.
+          </h2>
+          <p class="mt-4 text-sm leading-6 text-muted">
+            A little spice, a little comfort, and plenty to share.
+          </p>
+        </div>
+        <div class="mx-auto mb-8 max-w-fit rounded-lg bg-sand p-1.5">
+          <div
+            class="flex flex-wrap justify-center gap-1"
+            role="tablist"
+            aria-label="Menu categories"
+          >
+            <button
+              class="menu-tab"
+              role="tab"
+              id="tab-wraps"
+              aria-selected="true"
+              aria-controls="panel-wraps"
+              tabindex="0"
+            >
+              Shawarma and Wraps</button
+            ><button
+              class="menu-tab"
+              role="tab"
+              id="tab-rice"
+              aria-selected="false"
+              aria-controls="panel-rice"
+              tabindex="-1"
+            >
+              Mandi and Rice</button
+            ><button
+              class="menu-tab"
+              role="tab"
+              id="tab-starters"
+              aria-selected="false"
+              aria-controls="panel-starters"
+              tabindex="-1"
+            >
+              Starters</button
+            ><button
+              class="menu-tab"
+              role="tab"
+              id="tab-drinks"
+              aria-selected="false"
+              aria-controls="panel-drinks"
+              tabindex="-1"
+            >
+              Drinks
+            </button>
+          </div>
+        </div>
+        <div id="menu-panels">
+          <div
+            id="panel-wraps"
+            role="tabpanel"
+            aria-labelledby="tab-wraps"
+            tabindex="0"
+            class="grid gap-4 md:grid-cols-2"
+          >
+            <article
+              class="menu-card flex items-center gap-4 rounded-xl border border-maroon/10 bg-parchment p-5 sm:p-6"
+            >
+              <span
+                class="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-[#EEE4CD]"
+                aria-hidden="true"
+              >
+                <svg class="h-12 w-12" viewBox="0 0 100 100" focusable="false">
+                  <use href="#food-wrap" />
+                </svg>
+              </span>
+              <div class="min-w-0 flex-1">
+                <h3 class="font-display text-lg text-maroon">Classic Chicken Shawarma</h3>
+                <p class="mt-1 text-xs leading-5 text-muted">
+                  Spiced chicken, garlic toum and pickles in warm bread.
+                </p>
+              </div>
+              <span
+                class="shrink-0 text-sm font-semibold text-maroon"
+                aria-label="Price to be added"
+                >₹ --</span
+              >
+            </article>
+            <article
+              class="menu-card flex items-center gap-4 rounded-xl border border-maroon/10 bg-parchment p-5 sm:p-6"
+            >
+              <span
+                class="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-[#E9DDCF]"
+                aria-hidden="true"
+              >
+                <svg class="h-12 w-12" viewBox="0 0 100 100" focusable="false">
+                  <use href="#food-wrap" />
+                </svg>
+              </span>
+              <div class="min-w-0 flex-1">
+                <h3 class="font-display text-lg text-maroon">Lamb Shawarma</h3>
+                <p class="mt-1 text-xs leading-5 text-muted">
+                  Tender spiced lamb with tahini, onion and parsley.
+                </p>
+              </div>
+              <span
+                class="shrink-0 text-sm font-semibold text-maroon"
+                aria-label="Price to be added"
+                >₹ --</span
+              >
+            </article>
+            <article
+              class="menu-card flex items-center gap-4 rounded-xl border border-maroon/10 bg-parchment p-5 sm:p-6"
+            >
+              <span
+                class="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-[#E6E8D6]"
+                aria-hidden="true"
+              >
+                <svg class="h-12 w-12" viewBox="0 0 100 100" focusable="false">
+                  <use href="#food-pita" />
+                </svg>
+              </span>
+              <div class="min-w-0 flex-1">
+                <h3 class="font-display text-lg text-maroon">Falafel Wrap</h3>
+                <p class="mt-1 text-xs leading-5 text-muted">
+                  Crisp chickpea falafel, fresh greens and creamy tahini.
+                </p>
+              </div>
+              <span
+                class="shrink-0 text-sm font-semibold text-maroon"
+                aria-label="Price to be added"
+                >₹ --</span
+              >
+            </article>
+            <article
+              class="menu-card flex items-center gap-4 rounded-xl border border-maroon/10 bg-parchment p-5 sm:p-6"
+            >
+              <span
+                class="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-[#F0DFCB]"
+                aria-hidden="true"
+              >
+                <svg class="h-12 w-12" viewBox="0 0 100 100" focusable="false">
+                  <use href="#food-bread" />
+                </svg>
+              </span>
+              <div class="min-w-0 flex-1">
+                <h3 class="font-display text-lg text-maroon">Arabic Shawarma Plate</h3>
+                <p class="mt-1 text-xs leading-5 text-muted">
+                  Toasted chicken wrap bites, fries and garlic dip.
+                </p>
+              </div>
+              <span
+                class="shrink-0 text-sm font-semibold text-maroon"
+                aria-label="Price to be added"
+                >₹ --</span
+              >
+            </article>
+          </div>
+          <div
+            id="panel-rice"
+            role="tabpanel"
+            aria-labelledby="tab-rice"
+            tabindex="0"
+            class="grid gap-4 md:grid-cols-2"
+            hidden
+          ></div>
+          <div
+            id="panel-starters"
+            role="tabpanel"
+            aria-labelledby="tab-starters"
+            tabindex="0"
+            class="grid gap-4 md:grid-cols-2"
+            hidden
+          ></div>
+          <div
+            id="panel-drinks"
+            role="tabpanel"
+            aria-labelledby="tab-drinks"
+            tabindex="0"
+            class="grid gap-4 md:grid-cols-2"
+            hidden
+          ></div>
+        </div>
+        <p class="mt-6 text-center text-[11px] text-muted">
+          <span class="mr-2 text-gold" aria-hidden="true">✦</span>Sample menu · Dishes and prices
+          are for illustration only.
+        </p>
+        <noscript
+          ><p class="mt-4 text-center text-sm text-maroon">
+            Enable JavaScript to explore the other menu categories.
+          </p></noscript
+        >
+      </section>
+
+      <section
+        id="about"
+        class="border-y border-maroon/10 bg-sand/50"
+        aria-labelledby="about-title"
+      >
+        <div class="shell grid items-center gap-12 py-20 sm:py-24 lg:grid-cols-2 lg:gap-24">
+          <div class="reveal relative mx-auto w-full max-w-[440px]">
+            <div
+              class="relative flex aspect-[1.12] items-center justify-center overflow-hidden rounded-t-[160px] rounded-b-xl border border-maroon/10 bg-[#E9DCC3]"
+            >
+              <svg
+                viewBox="0 0 440 390"
+                class="h-full w-full"
+                role="img"
+                aria-labelledby="sanaa-title"
+              >
+                <title id="sanaa-title">
+                  Stylised illustration of traditional Yemeni architecture
+                </title>
+                <defs>
+                  <linearGradient id="sky" x2="0" y2="1">
+                    <stop stop-color="#EDE2CA" />
+                    <stop offset="1" stop-color="#DBC49F" />
+                  </linearGradient>
+                </defs>
+                <path fill="url(#sky)" d="M0 0h440v390H0z" />
+                <circle cx="328" cy="99" r="43" fill="#C9A24B" opacity=".6" />
+                <path d="M0 290 62 237l67 35 69-63 90 61 76-46 76 54v112H0Z" fill="#CCB28C" />
+                <g stroke="#F8EACD" stroke-width="3">
+                  <path d="M53 390V194h80v196" fill="#A15E43" />
+                  <path d="M142 390V130h103v260" fill="#8D4936" />
+                  <path d="M257 390V179h87v211" fill="#B27250" />
+                  <path d="M350 390V248h65v142" fill="#925139" />
+                  <path
+                    d="M43 193h101M131 129h126M246 178h109M45 219h92M144 160h99M145 237h98M145 306h98M259 208h82M259 274h82M350 276h65"
+                  />
+                  <path d="m149 145 9-7 9 7 9-7 9 7 9-7 9 7 9-7 9 7 9-7 9 7" fill="none" />
+                </g>
+                <g fill="#563A30" stroke="#EFDBB7" stroke-width="4">
+                  <path
+                    d="M72 259v-17a10 10 0 0 1 20 0v17ZM106 259v-17a10 10 0 0 1 20 0v17ZM164 215v-22a12 12 0 0 1 24 0v22ZM205 215v-22a12 12 0 0 1 24 0v22ZM164 285v-22a12 12 0 0 1 24 0v22ZM205 285v-22a12 12 0 0 1 24 0v22ZM277 250v-20a10 10 0 0 1 20 0v20ZM311 250v-20a10 10 0 0 1 20 0v20ZM277 316v-20a10 10 0 0 1 20 0v20ZM311 316v-20a10 10 0 0 1 20 0v20ZM72 318v-17a10 10 0 0 1 20 0v17ZM106 318v-17a10 10 0 0 1 20 0v17ZM369 324v-17a10 10 0 0 1 20 0v17Z"
+                  />
+                  <path d="M176 390v-43a20 20 0 0 1 40 0v43" />
+                </g>
+                <path d="M0 374c101-12 221 16 440-5v21H0Z" fill="#C1A17A" />
+                <path
+                  d="M37 120c8-6 13-6 20 0m0 0c6-6 12-6 19 0M97 88c6-5 10-5 15 0m0 0c5-5 9-5 14 0"
+                  fill="none"
+                  stroke="#9D7455"
+                  stroke-width="2"
+                />
+              </svg>
+            </div>
+            <div
+              class="absolute -bottom-5 right-4 rounded-lg bg-maroon px-6 py-4 text-cream shadow-soft sm:-right-5"
+            >
+              <p class="font-display text-xl italic">More than a meal.</p>
+              <p class="mt-1 text-[9px] uppercase tracking-[.2em] text-[#E1C584]">
+                A little piece of home.
+              </p>
+            </div>
+          </div>
+          <div class="reveal pt-5 lg:pt-0">
+            <p class="eyebrow text-maroon">Our table, your tradition</p>
+            <h2
+              id="about-title"
+              class="mt-3 font-display text-4xl leading-[1.2] tracking-tight text-maroon sm:text-[44px]"
+            >
+              Old-world recipes.<br />Whole-hearted hospitality.
+            </h2>
+            <p class="mt-6 text-sm leading-7 text-muted">
+              In Yemen, the best moments happen around a shared table. Al Yemen Kitchen is imagined
+              in that spirit: fragrant rice, slow-cooked meats, warm bread, and a welcome that makes
+              you stay a little longer.
+            </p>
+            <p class="mt-4 text-sm leading-7 text-muted">
+              Our fictional kitchen celebrates the warmth of Yemeni hospitality and the rich
+              flavours of the Arabic table. Come hungry. Leave feeling at home.
+            </p>
+            <div class="mt-8 grid grid-cols-3 border-t border-maroon/15 pt-7 text-maroon">
+              <div>
+                <p class="font-display text-3xl">10<span class="text-xl text-[#8D6725]">+</span></p>
+                <p class="mt-1 text-[11px] text-muted">Years of tradition</p>
+              </div>
+              <div>
+                <p class="font-display text-3xl">30<span class="text-xl text-[#8D6725]">+</span></p>
+                <p class="mt-1 text-[11px] text-muted">Signature dishes</p>
+              </div>
+              <div>
+                <p class="font-display text-3xl">5k<span class="text-xl text-[#8D6725]">+</span></p>
+                <p class="mt-1 text-[11px] text-muted">Happy guests</p>
+              </div>
+            </div>
+            <p class="mt-4 text-[10px] text-muted">
+              All statistics are sample values for this fictional concept.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="shell py-20 sm:py-24" aria-labelledby="gallery-title">
+        <div class="reveal mb-9 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <p class="eyebrow text-maroon">A feast for the senses</p>
+            <h2
+              id="gallery-title"
+              class="mt-3 font-display text-4xl tracking-tight text-maroon sm:text-[46px]"
+            >
+              Good food. Warm moments.
+            </h2>
+          </div>
+          <p class="max-w-[240px] text-sm leading-6 text-muted">
+            A taste of what belongs at our table.<br /><span class="text-[10px]"
+              >Illustrative food placeholders</span
+            >
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5">
+          <figure class="gallery-tile reveal">
+            <div
+              class="gallery-scene"
+              style="background: radial-gradient(ellipse at 30% 20%, #edd6a1, #b87747)"
+            >
+              <svg
+                class="gallery-illustration"
+                viewBox="0 0 100 100"
+                role="img"
+                aria-label="Rice bowl illustration"
+              >
+                <use href="#food-rice" />
+              </svg>
+            </div>
+            <figcaption class="gallery-label">The comfort of mandi</figcaption>
+          </figure>
+          <figure class="gallery-tile reveal">
+            <div
+              class="gallery-scene"
+              style="background: linear-gradient(135deg, #d7dfbc, #879b70)"
+            >
+              <svg
+                class="gallery-illustration"
+                viewBox="0 0 100 100"
+                role="img"
+                aria-label="Stuffed wrap illustration"
+              >
+                <use href="#food-wrap" />
+              </svg>
+            </div>
+            <figcaption class="gallery-label">Wrapped with love</figcaption>
+          </figure>
+          <figure class="gallery-tile reveal">
+            <div
+              class="gallery-scene"
+              style="background: radial-gradient(ellipse at 70% 20%, #ca8d6a, #854c3b)"
+            >
+              <svg
+                class="gallery-illustration"
+                viewBox="0 0 100 100"
+                role="img"
+                aria-label="Flatbread illustration"
+              >
+                <use href="#food-bread" />
+              </svg>
+            </div>
+            <figcaption class="gallery-label">Fresh from the kitchen</figcaption>
+          </figure>
+          <figure class="gallery-tile reveal">
+            <div
+              class="gallery-scene"
+              style="background: linear-gradient(125deg, #deccac, #bca178)"
+            >
+              <svg
+                class="gallery-illustration"
+                viewBox="0 0 100 100"
+                role="img"
+                aria-label="Fresh salad illustration"
+              >
+                <use href="#food-salad" />
+              </svg>
+            </div>
+            <figcaption class="gallery-label">A little freshness</figcaption>
+          </figure>
+          <figure class="gallery-tile reveal">
+            <div
+              class="gallery-scene"
+              style="background: radial-gradient(ellipse at 20% 10%, #e4bd7a, #af793f)"
+            >
+              <svg
+                class="gallery-illustration"
+                viewBox="0 0 100 100"
+                role="img"
+                aria-label="Teapot illustration"
+              >
+                <use href="#food-teapot" />
+              </svg>
+            </div>
+            <figcaption class="gallery-label">Slow down. Sip a little.</figcaption>
+          </figure>
+          <figure class="gallery-tile reveal">
+            <div
+              class="gallery-scene"
+              style="background: linear-gradient(135deg, #c69d87, #8d564c)"
+            >
+              <svg
+                class="gallery-illustration"
+                viewBox="0 0 100 100"
+                role="img"
+                aria-label="Falafel-filled pita illustration"
+              >
+                <use href="#food-pita" />
+              </svg>
+            </div>
+            <figcaption class="gallery-label">Better when shared</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section
+        id="visit"
+        class="border-t border-maroon/10 bg-parchment"
+        aria-labelledby="visit-title"
+      >
+        <div class="shell grid gap-12 py-20 sm:py-24 lg:grid-cols-[.85fr_1.15fr] lg:gap-24">
+          <div class="reveal">
+            <p class="eyebrow text-maroon">There's a place for you</p>
+            <h2
+              id="visit-title"
+              class="mt-3 font-display text-4xl tracking-tight text-maroon sm:text-[46px]"
+            >
+              Come hungry.<br />We'll take care of you.
+            </h2>
+            <div class="mt-8 flex gap-3">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-maroon" aria-hidden="true">
+                <use href="#icon-location" />
+              </svg>
+              <div>
+                <h3 class="text-sm font-semibold text-maroon">Find our kitchen</h3>
+                <address class="mt-2 text-sm not-italic leading-6 text-muted">
+                  [Street address], [Neighbourhood]<br />[City], [Postal code]
+                </address>
+                <p class="mt-2 text-[10px] text-muted">Sample address · Location to be added</p>
+              </div>
+            </div>
+            <div class="mt-5 flex gap-3">
+              <svg
+                class="h-5 w-5 shrink-0 text-maroon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                aria-hidden="true"
+              >
+                <path
+                  d="m5 3 4 1 1 5-3 1a15 15 0 0 0 7 7l1-3 5 1 1 4c-3 6-10 0-13-3S0 5 5 3Z"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div>
+                <p class="text-sm text-muted">+91 XXXXX XXXXX</p>
+                <p class="mt-1 text-[10px] text-muted">Placeholder phone number</p>
+              </div>
+            </div>
+            <div class="mt-7 border-t border-maroon/10 pt-6">
+              <h3 class="mb-3 flex items-center gap-2 text-sm font-semibold text-maroon">
+                <svg class="h-4 w-4" aria-hidden="true"><use href="#icon-clock" /></svg>Opening
+                hours
+              </h3>
+              <table class="opening-hours text-left text-xs">
+                <caption class="sr-only">
+                  Restaurant opening hours, open every day
+                </caption>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="py-2 font-normal text-muted">Daily</th>
+                    <td class="py-2 text-right font-medium">1:00 PM – 11:45 PM</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            class="reveal flex min-h-[350px] flex-col items-center justify-center rounded-2xl border border-dashed border-maroon/25 bg-sand/55 p-8 text-center lg:min-h-[460px]"
+            aria-label="Map placeholder. No real location is provided."
+          >
+            <span
+              class="mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-maroon/15 bg-cream"
+              ><svg class="h-7 w-7 text-maroon" aria-hidden="true">
+                <use href="#icon-location" /></svg
+            ></span>
+            <p class="font-display text-2xl text-maroon">Meet us here.</p>
+            <p class="mt-3 text-xs leading-6 text-muted">
+              A space for our future location.<br />Map embed coming here.
+            </p>
+            <span
+              class="mt-6 rounded-full border border-maroon/15 px-3 py-1.5 text-[9px] uppercase tracking-[.16em] text-muted"
+              >Location placeholder</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-cream py-12 sm:py-16" aria-labelledby="cta-title">
+        <div
+          class="shell reveal relative overflow-hidden rounded-2xl bg-maroon px-7 py-12 text-cream sm:px-12 lg:px-16"
+        >
+          <div
+            class="pattern pointer-events-none absolute inset-0 opacity-70"
+            aria-hidden="true"
+          ></div>
+          <div
+            class="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center"
+          >
+            <div>
+              <p class="eyebrow text-[#E1C584]">Your next good meal starts here</p>
+              <h2 id="cta-title" class="mt-3 font-display text-3xl tracking-tight sm:text-[40px]">
+                Bring a little Yemen home.
+              </h2>
+              <p class="mt-4 text-sm leading-6 text-[#E8D9CF]">
+                Your favourites, packed with love. Takeaway available daily.
+              </p>
+            </div>
+            <div class="shrink-0">
+              <a
+                href="https://wa.me/910000000000"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn bg-gold text-[#411515] hover:bg-[#DFB861]"
+                ><svg class="h-5 w-5" aria-hidden="true"><use href="#icon-whatsapp" /></svg>Order on
+                WhatsApp<span class="sr-only"> (sample number, opens in a new tab)</span
+                ><svg class="h-4 w-4" aria-hidden="true"><use href="#icon-arrow" /></svg
+              ></a>
+              <p class="mt-3 text-[10px] text-[#E8D9CF] md:text-center">
+                Demo link · Placeholder WhatsApp number
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="relative overflow-hidden bg-[#481818] text-cream">
+      <div class="pattern pointer-events-none absolute inset-0 opacity-40" aria-hidden="true"></div>
+      <div class="shell relative">
+        <div class="grid gap-9 py-12 sm:grid-cols-[1.4fr_1fr_1fr] sm:gap-12">
+          <div>
+            <a
+              href="#home"
+              class="inline-flex items-center gap-3"
+              aria-label="Al Yemen Kitchen home"
+              ><svg class="h-12 w-10 text-gold" aria-hidden="true"><use href="#icon-logo" /></svg
+              ><span
+                ><span class="block font-display text-2xl">Al Yemen</span
+                ><span class="mt-1 block text-[9px] uppercase tracking-[.38em] text-[#E1C584]"
+                  >Kitchen</span
+                ></span
+              ></a
+            >
+            <p class="mt-5 max-w-[240px] text-xs leading-6 text-[#D8C3B7]">
+              Authentic flavours. Generous hearts.<br />A place at our table, always.
+            </p>
+          </div>
+          <div>
+            <h2 class="eyebrow mb-5 text-[#E1C584]">Explore</h2>
+            <nav
+              aria-label="Footer navigation"
+              class="grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-[#E8D9CF]"
+            >
+              <a href="#home" class="hover:text-gold">Home</a
+              ><a href="#gallery" class="hover:text-gold">Gallery</a
+              ><a href="#menu" class="hover:text-gold">Our menu</a
+              ><a href="#visit" class="hover:text-gold">Visit us</a
+              ><a href="#about" class="hover:text-gold">Our story</a>
+            </nav>
+          </div>
+          <div>
+            <h2 class="eyebrow mb-5 text-[#E1C584]">Stay connected</h2>
+            <div class="flex gap-3">
+              <span class="social-placeholder" role="img" aria-label="Instagram placeholder"
+                ><svg
+                  class="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg></span
+              ><span class="social-placeholder" role="img" aria-label="Facebook placeholder"
+                ><svg
+                  class="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M14 21v-9h3l1-4h-4V6c0-1 1-2 2-2h2V1h-3c-4 0-5 2-5 5v2H7v4h3v9"
+                  /></svg></span
+              ><span
+                class="social-placeholder"
+                role="img"
+                aria-label="WhatsApp social profile placeholder"
+                ><svg class="h-5 w-5" aria-hidden="true"><use href="#icon-whatsapp" /></svg
+              ></span>
+            </div>
+            <p class="mt-3 text-[10px] text-[#D8C3B7]">Social profile placeholders</p>
+          </div>
+        </div>
+        <div
+          class="flex flex-col justify-between gap-3 border-t border-cream/15 py-6 text-[10px] leading-5 text-[#D8C3B7] sm:flex-row"
+        >
+          <p>© <span id="year">2026</span> Al Yemen Kitchen · A fictional restaurant</p>
+          <p>Concept design for portfolio purposes. Not an official website.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const dishes = {
+        rice: [
+          [
+            'chicken',
+            '#EEE4CD',
+            'Chicken Mandi',
+            'Slow-roasted chicken over fragrant, gently spiced basmati rice.',
+          ],
+          [
+            'chicken',
+            '#E9DDCF',
+            'Lamb Mandi',
+            'Tender lamb, aromatic rice and a side of tomato sahawiq.',
+          ],
+          [
+            'chicken',
+            '#F0DFCB',
+            'Chicken Kabsa',
+            'Basmati rice with chicken, tomato and warming whole spices.',
+          ],
+          [
+            'rice',
+            '#E6E8D6',
+            'Vegetable Rice',
+            'Seasonal vegetables folded into delicately seasoned basmati.',
+          ],
+        ],
+        starters: [
+          [
+            'falafel',
+            '#E6E8D6',
+            'Crispy Falafel',
+            'Golden chickpea bites with fresh herbs and tahini dip.',
+          ],
+          [
+            'dip',
+            '#EEE4CD',
+            'Classic Hummus',
+            'Smooth chickpea and tahini dip with olive oil and warm bread.',
+          ],
+          [
+            'dip',
+            '#E9DDCF',
+            'Baba Ganoush',
+            'Smoky roasted aubergine with tahini, lemon and olive oil.',
+          ],
+          [
+            'salad',
+            '#F0DFCB',
+            'Fattoush Salad',
+            'Crunchy greens, toasted bread and a bright sumac dressing.',
+          ],
+        ],
+        drinks: [
+          [
+            'lemonade',
+            '#E6E8D6',
+            'Fresh Mint Lemonade',
+            'Fresh lemon blended with mint for a cool, bright sip.',
+          ],
+          [
+            'cup',
+            '#E9DDCF',
+            'Adeni Tea',
+            'Comforting milk tea infused with cardamom and warm spices.',
+          ],
+          ['lassi', '#F0DFCB', 'Mango Lassi', 'A creamy blend of ripe mango and chilled yoghurt.'],
+          [
+            'teapot',
+            '#EEE4CD',
+            'Yemeni Qishr',
+            'A fragrant coffee-husk infusion with ginger and cinnamon.',
+          ],
+        ],
+      };
+      const cardTemplate = document.querySelector('#panel-wraps article');
+      Object.entries(dishes).forEach(([category, items]) => {
+        const panel = document.getElementById(`panel-${category}`);
+        items.forEach(([illustration, background, name, description]) => {
+          const card = cardTemplate.cloneNode(true);
+          const artwork = card.querySelector('[aria-hidden]');
+          artwork.querySelector('use').setAttribute('href', `#food-${illustration}`);
+          artwork.style.backgroundColor = background;
+          card.querySelector('h3').textContent = name;
+          card.querySelector('p').textContent = description;
+          panel.append(card);
+        });
+      });
+      const tabs = [...document.querySelectorAll('[role="tab"]')];
+      function activateTab(selected, moveFocus = false) {
+        tabs.forEach((tab) => {
+          const active = tab === selected;
+          tab.setAttribute('aria-selected', String(active));
+          tab.tabIndex = active ? 0 : -1;
+          document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
+        });
+        if (moveFocus) selected.focus();
+      }
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activateTab(tab));
+        tab.addEventListener('keydown', (event) => {
+          let next;
+          if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+          if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+          if (event.key === 'Home') next = 0;
+          if (event.key === 'End') next = tabs.length - 1;
+          if (next !== undefined) {
+            event.preventDefault();
+            activateTab(tabs[next], true);
+          }
+        });
+      });
+      const toggle = document.getElementById('mobile-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      function setMenu(open, restoreFocus = false) {
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+        document
+          .getElementById('menu-icon')
+          .setAttribute('d', open ? 'M6 6l12 12M6 18 18 6' : 'M4 7h16M4 12h16M4 17h16');
+        mobileMenu.hidden = !open;
+        if (restoreFocus) toggle.focus();
+      }
+      toggle.addEventListener('click', () =>
+        setMenu(toggle.getAttribute('aria-expanded') !== 'true'),
+      );
+      mobileMenu
+        .querySelectorAll('a')
+        .forEach((link) => link.addEventListener('click', () => setMenu(false)));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !mobileMenu.hidden) setMenu(false, true);
+      });
+      document.addEventListener('click', (event) => {
+        if (!mobileMenu.hidden && !event.target.closest('header')) setMenu(false);
+      });
+      window.matchMedia('(min-width: 1024px)').addEventListener('change', (event) => {
+        if (event.matches) setMenu(false);
+      });
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if ('IntersectionObserver' in window && !reducedMotion.matches) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.08 },
+        );
+        document.documentElement.classList.add('motion-ready');
+        document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+        reducedMotion.addEventListener('change', (event) => {
+          if (event.matches) {
+            document.documentElement.classList.remove('motion-ready');
+            observer.disconnect();
+          }
+        });
+      }
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
